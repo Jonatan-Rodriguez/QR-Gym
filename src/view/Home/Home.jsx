@@ -2,12 +2,17 @@ import { ContainerHome, Title } from './home.styled';
 import menTraining from '../../assets/img/menTraining.jpg';
 import womenTraining from '../../assets/img/womenTraining.jpg';
 import gymBackground from '../../assets/img/gym-background.jpg'; // Imagen de fondo
+import buffaloLogo from '../../assets/img/buffaloLogo.png';
 
 import { Link } from 'react-router-dom';
 
 function Home() {
     return (
         <ContainerHome style={{ backgroundImage: `url(${gymBackground})` }}>
+            <div className=" logo top-1 left-1">
+                <img src={buffaloLogo} alt="Buffalo Gym Logo" className="w-16 h-16" />
+            </div>
+
             {/* Título principal */}
             <Title>
                 <span className="text-orange-500">R</span>UTINAS
@@ -15,7 +20,7 @@ function Home() {
 
             {/* Card para Hombre */}
             <Link to='/manRutines'>
-                <div style={{ backgroundImage: `url(${menTraining})` }} className='flex flex-col items-center justify-end bg-cover bg-center bg-no-repeat w-96 h-44 rounded-3xl hover:scale-110 transition-transform duration-300 ease-in-out'>
+                <div style={{ backgroundImage: `url(${menTraining})` }} className='flex flex-col items-center justify-end bg-cover bg-center bg-no-repeat sm:w-96 w-72 h-44 rounded-3xl hover:scale-110 transition-transform duration-300 ease-in-out'>
                     <div className='gradient flex items-center justify-center h-2/4 w-full rounded-b-3xl'>
                         <div className='flex items-center justify-between w-full px-4'>
                             <p className='text-3xl font-title uppercase'>
@@ -29,7 +34,7 @@ function Home() {
 
             {/* Card para Mujer */}
             <Link to='/womenRutines'>
-                <div style={{ backgroundImage: `url(${womenTraining})` }} className='flex flex-col items-center justify-end bg-cover bg-center bg-no-repeat w-96 h-44 rounded-3xl hover:scale-110 transition-transform duration-300 ease-in-out'>
+                <div style={{ backgroundImage: `url(${womenTraining})` }} className='flex flex-col items-center justify-end bg-cover bg-center bg-no-repeat sm:w-96 w-72 h-44 rounded-3xl hover:scale-110 transition-transform duration-300 ease-in-out'>
                     <div className='gradient flex items-center justify-center h-2/4 w-full rounded-b-3xl'>
                         <div className='flex items-center justify-between w-full px-4'>
                             <p className='text-3xl font-title uppercase'>

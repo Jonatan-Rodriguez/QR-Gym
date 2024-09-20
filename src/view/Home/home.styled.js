@@ -11,10 +11,13 @@ export const ContainerHome = styled.div`
     row-gap: 10px;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Fija la imagen al fondo */
+    background-attachment: fixed;
     position: relative;
 
-    /* Imagen de fondo y oscurecimiento */
+    .logo{
+        position: absolute;
+    }
+
     &:before {
         content: '';
         position: absolute;
@@ -22,14 +25,13 @@ export const ContainerHome = styled.div`
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.7); /* Oscurecimiento */
-        z-index: 1; /* Debe estar detrás del contenido */
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1;
     }
 
-    /* Ajustar el contenido del contenedor */
     & > * {
         position: relative;
-        z-index: 2; /* El contenido está por encima del fondo oscuro */
+        z-index: 2;
     }
 
     .gradient {
@@ -44,7 +46,7 @@ export const ContainerHome = styled.div`
     }
 
     span {
-        color: #f97316; /* Naranja */
+        color: #f97316;
     }
 `;
 
@@ -59,6 +61,6 @@ export const Title = styled.h1`
     color: white;
 
     span {
-        color: #f97316; /* Naranja */
+        color: #f97316;
     }
 `;
