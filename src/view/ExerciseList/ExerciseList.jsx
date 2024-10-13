@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ContainerExerciseList, ExerciseCard, DropdownMenu, Title } from './exerciseList.styled';
 import { Link } from 'react-router-dom';
+import Checkbox from '../../components/Checkbox/Checkbox';
 
 const ExerciseList = ({ exercises, letter, title}) => {
     return (
@@ -8,7 +9,7 @@ const ExerciseList = ({ exercises, letter, title}) => {
             <div className='flex justify-between items-center border border-black h-14'>
                 <Link to='/'><svg className='text-3xl ml-2' xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="black"><path d="m11.948 14.829l-1.414 1.414L6.29 12l4.243-4.243l1.414 1.415L10.12 11h7.537v2H10.12z"/><path fill-rule="evenodd" d="M4.222 19.778c-4.296-4.296-4.296-11.26 0-15.556s11.26-4.296 15.556 0s4.296 11.26 0 15.556s-11.26 4.296-15.556 0m1.414-1.414A9 9 0 1 1 18.364 5.636A9 9 0 0 1 5.636 18.364" clip-rule="evenodd"/></g></svg></Link>
                 <Title>
-                    <h1 className='text-3xl'><span className='text-orange-500'>{letter}</span>{title}</h1>
+                    <h1 className='text-4xl'><span className='text-orange-500'>{letter}</span>{title}</h1>
                 </Title>
                 <div>
 
@@ -22,6 +23,7 @@ const ExerciseList = ({ exercises, letter, title}) => {
 };
 
 const ExerciseCardComponent = ({ exercise }) => {
+    const [count, setCount] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
     const [completedSets, setCompletedSets] = useState(Array(exercise.series).fill(false));
 
@@ -43,7 +45,7 @@ const ExerciseCardComponent = ({ exercise }) => {
                 <Title>
                     <h2 className='text-3xl font-bold'>{exercise.name}</h2>
                     <div className='text-lg '>
-                        <p><span>0</span> / {exercise.series} Terminado</p>
+                        <p><span>{count}</span> / {exercise.series} Terminado</p>
                         {/* <span>Reps: {exercise.reps}</span>
                         <span>Descanso: {exercise.rest}</span> */}
                     </div>
@@ -56,11 +58,9 @@ const ExerciseCardComponent = ({ exercise }) => {
                     {Array.from({ length: exercise.series }, (_, i) => (
                         <Title className='flex items-center justify-around w-full h-20 p-8 cursor-pointer rounded-lg bg-[#F5F5F5]' key={i}>
                             <div className='flex items-center justify-center gap-x-10'>
-                                <input
-                                    type="checkbox"
+                                <Checkbox type="checkbox"
                                     checked={completedSets[i]}
-                                    onChange={() => handleCheckboxChange(i)}
-                                />
+                                    onChange={() => handleCheckboxChange(i)}></Checkbox>
                                 <div className='text-3xl'><p>{i+1}</p></div>
                             </div>
                             <div className='flex items-center justify-center gap-x-10 text-3xl'>
