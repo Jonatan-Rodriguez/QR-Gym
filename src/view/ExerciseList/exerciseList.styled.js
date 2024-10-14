@@ -50,3 +50,14 @@ export const Title = styled.h1`
         color: #f97316;
     }
 `;
+
+export const BoxFont = styled.div`
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    color: black;
+
+    span {
+        color: #f97316;
+    }
+`;

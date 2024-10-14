@@ -1,129 +1,173 @@
 import React from "react";
 import styled from "styled-components";
 
-const Checkbox = () => {
+const Checkbox = ({ checked, onChange, id }) => {
   return (
     <StyledWrapper>
-      <div className="checkbox-wrapper">
-        <input id="_checkbox-26" type="checkbox" />
-        <label htmlFor="_checkbox-26">
-          <div className="tick_mark" />
-        </label>
+      <div className="checkbox-wrapper-12">
+        <div className="cbx">
+          <input type="checkbox" id={id} checked={checked} onChange={onChange} />
+          <label htmlFor={id} />
+          <svg fill="none" viewBox="0 0 15 14" height="23" width="24">
+            <path d="M2 8.36364L6.23077 12L13 2" />
+          </svg>
+        </div>
+
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="goo-12">
+              <feGaussianBlur
+                result="blur"
+                stdDeviation="4"
+                in="SourceGraphic"
+              />
+              <feColorMatrix
+                result="goo-12"
+                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -7"
+                mode="matrix"
+                in="blur"
+              />
+              <feBlend in2="goo-12" in="SourceGraphic" />
+            </filter>
+          </defs>
+        </svg>
       </div>
     </StyledWrapper>
   );
 };
 
 const StyledWrapper = styled.div`
-  .checkbox-wrapper * {
-  -webkit-tap-highlight-color: transparent;
-  outline: none;
-}
-
-.checkbox-wrapper input[type="checkbox"] {
-  display: none;
-}
-
-.checkbox-wrapper label {
-  --size: 50px;
-  --shadow: calc(var(--size) * .07) calc(var(--size) * .1);
+  .checkbox-wrapper-12 {
   position: relative;
-  display: block;
-  width: var(--size);
-  height: var(--size);
-  margin: 0 auto;
-  background-color: #4158D0;
-  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-  border-radius: 50%;
-  box-shadow: 0 var(--shadow) #ffbeb8;
+}
+
+.checkbox-wrapper-12 > svg {
+  position: absolute;
+  top: -130%;
+  left: -170%;
+  width: 110px;
+  pointer-events: none;
+}
+
+.checkbox-wrapper-12 * {
+  box-sizing: border-box;
+}
+
+.checkbox-wrapper-12 input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
   cursor: pointer;
-  transition: 0.2s ease transform, 0.2s ease background-color,
-      0.2s ease box-shadow;
-  overflow: hidden;
-  z-index: 1;
+  margin: 0;
 }
 
-.checkbox-wrapper label:before {
-  content: "";
+.checkbox-wrapper-12 input[type="checkbox"]:focus {
+  outline: 0;
+}
+
+.checkbox-wrapper-12 .cbx {
+  width: 34px;
+  height: 34px;
+  top: calc(100px - 12px);
+  left: calc(100px - 12px);
+}
+
+.checkbox-wrapper-12 .cbx input {
   position: absolute;
-  top: 50%;
-  right: 0;
+  top: 0;
   left: 0;
-  width: calc(var(--size) * .7);
-  height: calc(var(--size) * .7);
-  margin: 0 auto;
-  background-color: #fff;
-  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border: 2px solid #bfbfc0;
   border-radius: 50%;
-  box-shadow: inset 0 var(--shadow) #ffbeb8;
-  transition: 0.2s ease width, 0.2s ease height;
 }
 
-.checkbox-wrapper label:hover:before {
-  width: calc(var(--size) * .55);
-  height: calc(var(--size) * .55);
-  box-shadow: inset 0 var(--shadow) #ff9d96;
-}
-
-.checkbox-wrapper label:active {
-  transform: scale(0.9);
-}
-
-.checkbox-wrapper .tick_mark {
+.checkbox-wrapper-12 .cbx label {
+  width: 34px;
+  height: 34px;
+  background: none;
+  border-radius: 50%;
   position: absolute;
-  top: -1px;
-  right: 0;
-  left: calc(var(--size) * -.05);
-  width: calc(var(--size) * .6);
-  height: calc(var(--size) * .6);
-  margin: 0 auto;
-  margin-left: calc(var(--size) * .14);
-  transform: rotateZ(-40deg);
+  top: 0;
+  left: 0;
+  transform: trasnlate3d(0, 0, 0);
+  pointer-events: none;
 }
 
-.checkbox-wrapper .tick_mark:before,
-  .checkbox-wrapper .tick_mark:after {
-  content: "";
+.checkbox-wrapper-12 .cbx svg {
   position: absolute;
-  background-color: #fff;
-  border-radius: 2px;
-  opacity: 0;
-  transition: 0.2s ease transform, 0.2s ease opacity;
+  top: 5px;
+  left: 4px;
+  z-index: 1;
+  pointer-events: none;
 }
 
-.checkbox-wrapper .tick_mark:before {
-  left: 0;
-  bottom: 0;
-  width: calc(var(--size) * .1);
-  height: calc(var(--size) * .3);
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.23);
-  transform: translateY(calc(var(--size) * -.68));
+.checkbox-wrapper-12 .cbx svg path {
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 19;
+  stroke-dashoffset: 19;
+  transition: stroke-dashoffset 0.3s ease;
+  transition-delay: 0.2s;
 }
 
-.checkbox-wrapper .tick_mark:after {
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: calc(var(--size) * .1);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.23);
-  transform: translateX(calc(var(--size) * .78));
+.checkbox-wrapper-12 .cbx input:checked + label {
+  animation: splash-12 0.6s ease forwards;
 }
 
-.checkbox-wrapper input[type="checkbox"]:checked + label {
-  background-color: #4158D0;
-  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+.checkbox-wrapper-12 .cbx input:checked + label + svg path {
+  stroke-dashoffset: 0;
 }
 
-.checkbox-wrapper input[type="checkbox"]:checked + label:before {
-  width: 0;
-  height: 0;
+@-moz-keyframes splash-12 {
+  40% {
+    background: #f97316;
+    box-shadow: 0 -18px 0 -8px #f97316, 16px -8px 0 -8px #f97316, 16px 8px 0 -8px #f97316, 0 18px 0 -8px #f97316, -16px 8px 0 -8px #f97316, -16px -8px 0 -8px #f97316;
+  }
+
+  100% {
+    background: #f97316;
+    box-shadow: 0 -36px 0 -10px transparent, 32px -16px 0 -10px transparent, 32px 16px 0 -10px transparent, 0 36px 0 -10px transparent, -32px 16px 0 -10px transparent, -32px -16px 0 -10px transparent;
+  }
 }
 
-.checkbox-wrapper input[type="checkbox"]:checked + label .tick_mark:before,
-  .checkbox-wrapper input[type="checkbox"]:checked + label .tick_mark:after {
-  transform: translate(0);
-  opacity: 1;
+@-webkit-keyframes splash-12 {
+  40% {
+    background: #f97316;
+    box-shadow: 0 -18px 0 -8px #f97316, 16px -8px 0 -8px #f97316, 16px 8px 0 -8px #f97316, 0 18px 0 -8px #f97316, -16px 8px 0 -8px #f97316, -16px -8px 0 -8px #f97316;
+  }
+
+  100% {
+    background: #f97316;
+    box-shadow: 0 -36px 0 -10px transparent, 32px -16px 0 -10px transparent, 32px 16px 0 -10px transparent, 0 36px 0 -10px transparent, -32px 16px 0 -10px transparent, -32px -16px 0 -10px transparent;
+  }
+}
+
+@-o-keyframes splash-12 {
+  40% {
+    background: #f97316;
+    box-shadow: 0 -18px 0 -8px #f97316, 16px -8px 0 -8px #f97316, 16px 8px 0 -8px #f97316, 0 18px 0 -8px #f97316, -16px 8px 0 -8px #f97316, -16px -8px 0 -8px #f97316;
+  }
+
+  100% {
+    background: #f97316;
+    box-shadow: 0 -36px 0 -10px transparent, 32px -16px 0 -10px transparent, 32px 16px 0 -10px transparent, 0 36px 0 -10px transparent, -32px 16px 0 -10px transparent, -32px -16px 0 -10px transparent;
+  }
+}
+
+@keyframes splash-12 {
+  40% {
+    background: #f97316;
+    box-shadow: 0 -18px 0 -8px #f97316, 16px -8px 0 -8px #f97316, 16px 8px 0 -8px #f97316, 0 18px 0 -8px #f97316, -16px 8px 0 -8px #f97316, -16px -8px 0 -8px #f97316;
+  }
+
+  100% {
+    background: #f97316;
+    box-shadow: 0 -36px 0 -10px transparent, 32px -16px 0 -10px transparent, 32px 16px 0 -10px transparent, 0 36px 0 -10px transparent, -32px 16px 0 -10px transparent, -32px -16px 0 -10px transparent;
+  }
 }
 `;
 
