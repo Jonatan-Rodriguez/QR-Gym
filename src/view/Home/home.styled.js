@@ -5,6 +5,7 @@ export const ContainerHome = styled.div`
     min-height: 100vh;
     max-height: 150vh; */
     width: auto;
+    min-height: 100vh;
     height: auto;
     padding: 3% 5%;
     display: flex;

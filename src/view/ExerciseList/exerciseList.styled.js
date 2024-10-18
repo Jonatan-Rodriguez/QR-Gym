@@ -15,14 +15,10 @@ export const ExerciseCard = styled.div`
     background-color: white;
     padding: 1rem;
     cursor: pointer;
-    column-gap: 50px;
 
     img {
         width: 100px;
         height: 80px;
-    }
-    h2 {
-        color: #333;
     }
     &:hover {
         background-color: #e5e5e5;

@@ -46,7 +46,7 @@ const ExerciseCardComponent = ({ exercise }) => {
 
     return (
         <div>
-            <ExerciseCard className='' onClick={toggleDropdown}>
+            <ExerciseCard className='gap-x-6' onClick={toggleDropdown}>
                 <div>
                     <svg className='text-3xl' xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
                         <path fill="none" stroke="black" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m7 10l5 5m0 0l5-5"/>
@@ -67,11 +67,11 @@ const ExerciseCardComponent = ({ exercise }) => {
                     {Array.from({ length: exercise.series }, (_, i) => (
                         <BoxFont
                             key={i}
-                            className={`flex items-center justify-around w-full h-20 p-8 rounded-lg transition-colors duration-300 ${
+                            className={`flex items-center justify-around w-full max-w-3xl h-20 p-8 gap-x-6 rounded-lg transition-colors duration-300 ${
                                 completedSets[i] ? 'bg-green-300' : 'bg-[#F5F5F5]'
                             }`}
                         >
-                            <div className='flex items-center justify-center gap-x-10'>
+                            <div className='flex items-center justify-between w-1/4 gap-x-4'>
                                 <Checkbox 
                                     type="checkbox"
                                     checked={completedSets[i]}
@@ -79,7 +79,7 @@ const ExerciseCardComponent = ({ exercise }) => {
                                 />
                                 <div className={`text-3xl transition-colors duration-300 ${completedSets[i] ? 'text-white' : 'text-black'}`}><p>{i + 1}</p></div>
                             </div>
-                            <div className='flex items-center justify-center gap-x-10 text-3xl'>
+                            <div className='flex items-center justify-between w-3/4 max-w-xs gap-x-4 text-3xl'>
                                 <div className='flex items-center justify-center text-3xl w-32 h-12 bg-[#6C757D30] rounded-lg '>
                                     <p className={`text-3xl transition-colors duration-300 ${completedSets[i] ? 'text-white' : 'text-[#6C757D]'}`}>{exercise.reps}</p>
                                 </div>
