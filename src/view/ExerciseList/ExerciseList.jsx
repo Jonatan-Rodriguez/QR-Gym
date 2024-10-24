@@ -6,16 +6,16 @@ import Checkbox from '../../components/Checkbox/Checkbox';
 const ExerciseList = ({ exercises, letter, title }) => {
     return (
         <ContainerExerciseList>
-            <div className='flex justify-between items-center border border-black h-14'>
-                <Link to='/'>
-                    <svg className='text-3xl ml-2' xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+            <div className="flex justify-between items-center border border-black h-14 px-4">
+                <Link to="/">
+                    <svg className="text-3xl ml-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
                         <g fill="black">
-                            <path d="m11.948 14.829l-1.414 1.414L6.29 12l4.243-4.243l1.414 1.415L10.12 11h7.537v2H10.12z"/>
-                            <path fillRule="evenodd" d="M4.222 19.778c-4.296-4.296-4.296-11.26 0-15.556s11.26-4.296 15.556 0s4.296 11.26 0 15.556s-11.26 4.296-15.556 0m1.414-1.414A9 9 0 1 1 18.364 5.636A9 9 0 0 1 5.636 18.364" clipRule="evenodd"/>
+                        <path d="m11.948 14.829l-1.414 1.414L6.29 12l4.243-4.243l1.414 1.415L10.12 11h7.537v2H10.12z" />
+                        <path fillRule="evenodd" d="M4.222 19.778c-4.296-4.296-4.296-11.26 0-15.556s11.26-4.296 15.556 0s4.296 11.26 0 15.556s-11.26 4.296-15.556 0m1.414-1.414A9 9 0 1 1 18.364 5.636A9 9 0 0 1 5.636 18.364" clipRule="evenodd" />
                         </g>
                     </svg>
                 </Link>
-                <Title className='text-4xl'>
+                <Title className="text-2xl sm:text-4xl text-center truncate flex-grow ml-2">
                     <span>{letter}</span>{title}
                 </Title>
                 <div></div>
@@ -24,6 +24,7 @@ const ExerciseList = ({ exercises, letter, title }) => {
                 <ExerciseCardComponent key={index} exercise={exercise} />
             ))}
         </ContainerExerciseList>
+
     );
 };
 
@@ -54,8 +55,8 @@ const ExerciseCardComponent = ({ exercise }) => {
                 </div>
                 <img className='' src={exercise.img} alt={exercise.name} />
                 <BoxFont>
-                    <p className='text-3xl font-bold'>{exercise.name}</p>
-                    <div className='text-lg '>
+                    <p className='font-bold text-2xl sm:text-3xl truncate flex-grow'>{exercise.name}</p>
+                    <div className='text-sm sm:text-lg truncate flex-grow'>
                         <p><span>{count}</span> / {exercise.series} Terminado</p>
                     </div>
                 </BoxFont>
